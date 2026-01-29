@@ -67,8 +67,11 @@ slim build --target "$SOURCE_IMAGE" \
     --preserve-path=/etc/ssl \
     --exclude-pattern=/var/lib/postgresql/data/* \
     --exclude-pattern=/var/lib/postgresql/data/** \
+    --exclude-pattern=/var/lib/postgresql/data/**/* \
     --exclude-pattern=/var/lib/postgresql/data/**/** \
+    --exclude-pattern=/var/lib/postgresql/data/**/**/* \
     --exclude-pattern=/var/lib/postgresql/data/**/**/** \
+    --exclude-pattern=/var/lib/postgresql/data/**/**/**/* \
     --exclude-pattern=/var/lib/postgresql/data/**/**/**/** \
     --include-shell \
     --include-bin=/usr/bin/timescaledb-tune \
