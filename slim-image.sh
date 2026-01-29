@@ -64,10 +64,11 @@ slim build --target "$SOURCE_IMAGE" \
     --preserve-path=/docker-entrypoint-initdb.d \
     --preserve-path=/or-entrypoint.sh \
     --preserve-path=/etc/postgresql \
+    --exclude-path=/var/lib/postgresql/data \
     --preserve-path=/etc/ssl \
     --include-shell \
     --include-bin=/usr/bin/timescaledb-tune \
-	--include-bin=/usr/bin/timescaledb-parallel-copy \
+    --include-bin=/usr/bin/timescaledb-parallel-copy \
     --include-bin=/usr/bin/sort \
     --include-bin=/usr/bin/find \
     --include-bin=/usr/bin/xargs \

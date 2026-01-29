@@ -65,9 +65,9 @@ jobs:
       - name: Set tags
         run: |
           if [ -z "$TAG" ]; then
-            echo "TAG=-t openremote/postgresql:develop-amd64" >> $GITHUB_ENV
+            echo "TAG=-t wborn/postgresql:develop-amd64" >> $GITHUB_ENV
           else
-            echo "TAG=-t openremote/postgresql:$TAG-amd64" >> $GITHUB_ENV
+            echo "TAG=-t wborn/postgresql:$TAG-amd64" >> $GITHUB_ENV
           fi
         env:
           TAG: ${{ github.event.release.tag_name }}
@@ -89,8 +89,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
         with:
-          username: ${{ secrets._TEMP_DOCKERHUB_USER }}
-          password: ${{ secrets._TEMP_DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
         
       - name: Build amd64 image locally
         run: |
@@ -161,9 +161,9 @@ jobs:
       - name: Set tags
         run: |
           if [ -z "$TAG" ]; then
-            echo "TAG=-t openremote/postgresql:develop-arm64" >> $GITHUB_ENV
+            echo "TAG=-t wborn/postgresql:develop-arm64" >> $GITHUB_ENV
           else
-            echo "TAG=-t openremote/postgresql:$TAG-arm64" >> $GITHUB_ENV
+            echo "TAG=-t wborn/postgresql:$TAG-arm64" >> $GITHUB_ENV
           fi
         env:
           TAG: ${{ github.event.release.tag_name }}
@@ -185,8 +185,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
         with:
-          username: ${{ secrets._TEMP_DOCKERHUB_USER }}
-          password: ${{ secrets._TEMP_DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
         
       - name: Build arm64 image locally
         run: |
@@ -223,21 +223,21 @@ jobs:
       - name: Set tags
         run: |
           if [ -z "$TAG" ]; then
-            echo "TAG=openremote/postgresql:develop" >> $GITHUB_ENV
-            echo "TAG_AMD64=openremote/postgresql:develop-amd64" >> $GITHUB_ENV
-            echo "TAG_ARM64=openremote/postgresql:develop-arm64" >> $GITHUB_ENV
-            echo "TAG_SLIM=openremote/postgresql:develop-slim" >> $GITHUB_ENV
-            echo "TAG_SLIM_AMD64=openremote/postgresql:develop-amd64-slim" >> $GITHUB_ENV
-            echo "TAG_SLIM_ARM64=openremote/postgresql:develop-arm64-slim" >> $GITHUB_ENV
+            echo "TAG=wborn/postgresql:develop" >> $GITHUB_ENV
+            echo "TAG_AMD64=wborn/postgresql:develop-amd64" >> $GITHUB_ENV
+            echo "TAG_ARM64=wborn/postgresql:develop-arm64" >> $GITHUB_ENV
+            echo "TAG_SLIM=wborn/postgresql:develop-slim" >> $GITHUB_ENV
+            echo "TAG_SLIM_AMD64=wborn/postgresql:develop-amd64-slim" >> $GITHUB_ENV
+            echo "TAG_SLIM_ARM64=wborn/postgresql:develop-arm64-slim" >> $GITHUB_ENV
           else
-            echo "TAG=openremote/postgresql:$TAG" >> $GITHUB_ENV
-            echo "TAG_LATEST=openremote/postgresql:latest" >> $GITHUB_ENV
-            echo "TAG_AMD64=openremote/postgresql:$TAG-amd64" >> $GITHUB_ENV
-            echo "TAG_ARM64=openremote/postgresql:$TAG-arm64" >> $GITHUB_ENV
-            echo "TAG_SLIM=openremote/postgresql:$TAG-slim" >> $GITHUB_ENV
-            echo "TAG_SLIM_LATEST=openremote/postgresql:latest-slim" >> $GITHUB_ENV
-            echo "TAG_SLIM_AMD64=openremote/postgresql:$TAG-amd64-slim" >> $GITHUB_ENV
-            echo "TAG_SLIM_ARM64=openremote/postgresql:$TAG-arm64-slim" >> $GITHUB_ENV
+            echo "TAG=wborn/postgresql:$TAG" >> $GITHUB_ENV
+            echo "TAG_LATEST=wborn/postgresql:latest" >> $GITHUB_ENV
+            echo "TAG_AMD64=wborn/postgresql:$TAG-amd64" >> $GITHUB_ENV
+            echo "TAG_ARM64=wborn/postgresql:$TAG-arm64" >> $GITHUB_ENV
+            echo "TAG_SLIM=wborn/postgresql:$TAG-slim" >> $GITHUB_ENV
+            echo "TAG_SLIM_LATEST=wborn/postgresql:latest-slim" >> $GITHUB_ENV
+            echo "TAG_SLIM_AMD64=wborn/postgresql:$TAG-amd64-slim" >> $GITHUB_ENV
+            echo "TAG_SLIM_ARM64=wborn/postgresql:$TAG-arm64-slim" >> $GITHUB_ENV
           fi
         env:
           TAG: ${{ github.event.release.tag_name }}
@@ -245,8 +245,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
         with:
-          username: ${{ secrets._TEMP_DOCKERHUB_USER }}
-          password: ${{ secrets._TEMP_DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
       - name: Create and push multi-arch manifest
         run: |
