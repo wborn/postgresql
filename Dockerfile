@@ -65,7 +65,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends fd-find \
               /usr/share/locale/* \
               /tmp/* \
               /var/tmp/* \
-              /var/lib/postgresql/data/* \
               /root/.cache \
               /home/postgres/.cache \
               /usr/local/lib/pgai \
