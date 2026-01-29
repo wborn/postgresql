@@ -64,7 +64,7 @@ slim build --target "$SOURCE_IMAGE" \
     --preserve-path=/or-entrypoint.sh \
     --preserve-path=/etc/postgresql \
     --preserve-path=/etc/ssl \
-    --exclude-pattern=/var/lib/postgresql/data/* \
+    --exclude-pattern=/var/lib/postgresql/data/.* \
     --include-shell \
     --include-bin=/usr/bin/timescaledb-tune \
     --include-bin=/usr/bin/timescaledb-parallel-copy \
