@@ -45,6 +45,7 @@ slim build --target "$SOURCE_IMAGE" \
     --tag "$TARGET_IMAGE" \
     --http-probe=false \
     --continue-after=60 \
+    --mount slim-pgdata:/var/lib/postgresql/data \
     --expose=5432 \
     --expose=8008 \
     --expose=8081 \
@@ -101,5 +102,8 @@ slim build --target "$SOURCE_IMAGE" \
     --include-bin=/usr/bin/less \
     --include-bin=/bin/ln \
     --include-bin=/usr/bin/chown
+
+# delete volume to always start with an empty PGDATA directory
+docker volume rm slim-pgdata
 
 echo "Successfully created slimmed image: $TARGET_IMAGE"
