@@ -62,7 +62,7 @@ slim build --target "$SOURCE_IMAGE" \
     --include-path=/usr/share/pgbouncer \
     --include-path=/usr/share/locales \
     --include-path=/usr/share/zoneinfo \
-    --include-path=/var/run \
+    --include-path=/var \
     --preserve-path=/var/lib/postgresql \
     --preserve-path=/docker-entrypoint-initdb.d \
     --preserve-path=/or-entrypoint.sh \
