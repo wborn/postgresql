@@ -62,7 +62,9 @@ slim build --target "$SOURCE_IMAGE" \
     --include-path=/usr/share/zoneinfo \
     --include-path=/etc/alternatives \
     --include-path=/usr/local/bin \
+    --preserve-path=/run \
     --preserve-path=/var/lib/postgresql \
+    --preserve-path=/var/run \
     --preserve-path=/docker-entrypoint-initdb.d \
     --preserve-path=/or-entrypoint.sh \
     --preserve-path=/etc/postgresql \
