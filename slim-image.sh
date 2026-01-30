@@ -43,6 +43,7 @@ echo "Slimming image: $SOURCE_IMAGE -> $TARGET_IMAGE (arch: $ARCH, lib: $LIB_ARC
 # use *--mount* volume so it starts with an empty PGDATA directory to initdb will be called and the components used for it will be perserved
 slim build --target "$SOURCE_IMAGE" \
     --tag "$TARGET_IMAGE" \
+    --include-new=false \
     --http-probe=false \
     --continue-after=60 \
     --mount slim-pgdata:/var/lib/postgresql/data \
@@ -65,8 +66,6 @@ slim build --target "$SOURCE_IMAGE" \
     --preserve-path=/or-entrypoint.sh \
     --preserve-path=/etc/postgresql \
     --preserve-path=/etc/ssl \
-    --exclude-pattern=/var/lib/postgresql/data/* \
-    --exclude-pattern=/var/lib/postgresql/data/** \
     --include-shell \
     --include-bin=/usr/bin/timescaledb-tune \
     --include-bin=/usr/bin/timescaledb-parallel-copy \
