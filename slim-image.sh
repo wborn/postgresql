@@ -44,6 +44,7 @@ echo "Slimming image: $SOURCE_IMAGE -> $TARGET_IMAGE (arch: $ARCH, lib: $LIB_ARC
 slim build --target "$SOURCE_IMAGE" \
     --tag "$TARGET_IMAGE" \
     --include-new=false \
+    --exclude-varlock-files=false \
     --http-probe=false \
     --continue-after=60 \
     --mount slim-pgdata:/var/lib/postgresql/data \
