@@ -51,6 +51,8 @@ slim build --target "$SOURCE_IMAGE" \
     --expose=5432 \
     --expose=8008 \
     --expose=8081 \
+    --include-path=/etc/alternatives \
+    --include-path=/run \
     --include-path=/usr/lib/postgresql \
     --include-path=/usr/lib/${LIB_ARCH} \
     --include-path=/usr/share/postgresql \
@@ -60,11 +62,8 @@ slim build --target "$SOURCE_IMAGE" \
     --include-path=/usr/share/pgbouncer \
     --include-path=/usr/share/locales \
     --include-path=/usr/share/zoneinfo \
-    --include-path=/etc/alternatives \
-    --include-path=/usr/local/bin \
-    --preserve-path=/run \
+    --include-path=/var/run \
     --preserve-path=/var/lib/postgresql \
-    --preserve-path=/var/run \
     --preserve-path=/docker-entrypoint-initdb.d \
     --preserve-path=/or-entrypoint.sh \
     --preserve-path=/etc/postgresql \
